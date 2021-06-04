@@ -1,0 +1,12 @@
+
+#!/bin/bash
+
+: ${dir_name:="secp256k1_ios"}
+
+# mkdir $dir_name
+
+lipo -create build/arm64/libsecp256k1.a build/x86_64/libsecp256k1.a build/armv7/libsecp256k1.a build/armv7s/libsecp256k1.a build/i386/libsecp256k1.a -output secp256k1_ios/libsecp256k1.a
+
+cp -f build/arm64/include/*.h $dir_name
+
+cp -f build/arm64/include/*.h secp256k1_ios
